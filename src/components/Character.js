@@ -1,28 +1,44 @@
 // Write your Character component here
 import React from 'react';
+import styled from 'styled-components';
 
-export default function Character({ data, action }) {
+const StyledCharacter = styled.div`
+background-color: white;
+opacity: .7;
+width: 50%;
+display: flex;
+justify-content: center;
+margin: 10px auto;
+padding-top: 20px;
+padding-bottom: 20px;
 
-    // return data.map((props) => 
-    //     <div className='container'>
-    //         <h3>Name: {props.name}</h3>
-    //         <p>Birthyear: {props.birth_year}</p>
-    //         <p>Gender: {props.gender}</p>
-    //         <p>Mass: {props.mass}</p>
-    //         <p>Height: {props.height}</p>
-    //         <p>Hair Color: {props.hair_color}</p>
-    //         <p>Skin Color: {props.skin_color}</p>
-    //         <p>Eye Color: {props.eye_color}</p>
-    //     </div>
-    // )
+
+    h3 {
+        font-size: 1.5em;
+    }
+`
+
+
+export default function Character (props) {
+    const { info } = props
 
     return (
-        <div className='character'>
-            {data.name}
-            <button onClick={() => action(data.name)}>
-                Character Information
-            </button>
-        </div>
+        <StyledCharacter className='card-container'>
+            <div className='card'>
+                <div>
+                    <h3>{info.name}</h3>
+                </div>
+          
+                <div className='card'>
+                    <p>Birthyear: {info.birth_year}</p>
+                    <p>Gender: {info.gender}</p>
+                    <p>Mass: {info.mass}</p>
+                    <p>Height: {info.height}</p>
+                    <p>Hair Color: {info.hair_color}</p>
+                    <p>Skin Color: {info.skin_color}</p>
+                    <p>Eye Color: {info.eye_color}</p>
+                </div>
+            </div>
+        </StyledCharacter>
     )
-
 }
